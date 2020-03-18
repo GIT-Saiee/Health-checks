@@ -9,7 +9,8 @@ def main():
     if check_reboot():
         print("pending reboot")
         sys.exit(1)
-    print("Everythng OK.")
-    sys.exit(0)
+    if check_disk_full("/", 2, 10):
+        print("Disk full.")
+    sys.exit(1)
 
 main()
